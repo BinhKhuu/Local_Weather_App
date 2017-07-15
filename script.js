@@ -1,26 +1,3 @@
-$(window).on('resize',function(){
-  var height = $(window).height();
-  if (height <= 600) {
-    $('#background').css('height','600px');
-  } else {
-    $('#background').css('height','100vh');
-  }
-});
-
-
-$('.degree').on('click',function(){ 
-  var temp = parseInt(document.getElementById('temp').innerHTML);
-  $('.degree').toggle();
-  if ($('.c-btn').is(":visible")) {
-    $('#temp').text(Math.round((temp - 32) * 5/9 ));
-  } else{
-    $('#temp').text(Math.round(temp * 9/5 + 32));  
-  }
-  count ++;  
-
-});
-
-
 $(document).ready(function(){
   var geo = navigator.geolocation;
   var lon;
@@ -54,5 +31,24 @@ $(document).ready(function(){
         });
       });    
   }
+  
+  $(window).on('resize',function(){
+    var height = $(window).height();
+    if (height <= 600) {
+      $('#background').css('height','600px');
+    } else {
+      $('#background').css('height','100vh');
+    }
+  });
+  
+  $('.degree').on('click',function(){ 
+    var temp = parseInt(document.getElementById('temp').innerHTML);
+    $('.degree').toggle();
+    if ($('.c-btn').is(":visible")) {
+      $('#temp').text(Math.round((temp - 32) * 5/9 ));
+    } else{
+      $('#temp').text(Math.round(temp * 9/5 + 32));  
+    }
+  });
   
 });
